@@ -204,4 +204,33 @@ public int Load(String Path)
 	else
 		return -1;
 }
+
+
+protected static int TotalCost = 0;
+public boolean AddInTotalCost()
+{
+	if (Product.TotalCost + this.Price * this.Count >= 0)
+	{
+		Product.TotalCost = Product.TotalCost + this.Price * this.Count;
+		return true;
+	}
+	else
+		return false;
+}
+
+public static int GetTotalCost() {return Product.TotalCost;}
+public static void ResetTotalCost() {Product.TotalCost = 0; return;}
+public static boolean CalculateTotalCost(Product[] List)
+{
+	int Cost = 0;
+	for (int i = 0; i < List.length && Cost >= 0; i++)
+		Cost += List[i].Price * List[i].Count;
+	if (Cost >= 0 && Product.TotalCost + Cost >= 0)
+	{
+		Product.TotalCost += Cost;
+		return true;
+	}
+	else
+		return false;
+}
 };
