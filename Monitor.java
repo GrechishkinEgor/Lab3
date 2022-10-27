@@ -93,19 +93,45 @@ public class Monitor extends Product
 	
 	public int GetDiagonal() {return Diagonal;}
 	public int GetFrequency() {return Frequency;}
-	public int[] GetSize()
+	
+	class Sizes
 	{
-		int Result[] = new int[2];
+		public int Size1;
+		public int Size2;
+		public Sizes(int Size1, int Size2)
+		{
+			this.Size1 = Size1;
+			this.Size2 = Size2;
+			return;
+		}
+	};
+	public Sizes GetSize()
+	{
+		/*int Result[] = new int[2];
 		Result[0] = Size[0];
 		Result[1] = Size[1];
-		return Result;
+		return Result;*/
+		return new Sizes(this.Size[0], this.Size[1]);
 	}
-	public int[] GetAspectRatio()
+	
+	class Aspects
+		{
+			public int Aspect1;
+			public int Aspect2;
+			public Aspects(int Aspect1, int Aspect2)
+			{
+				this.Aspect1 = Aspect1;
+				this.Aspect2 = Aspect2;
+			}
+		};
+	public Aspects GetAspectRatio()
 	{
-		int Result[] = new int[2];
+		
+		/*int Result[] = new int[2];
 		Result[0] = AspectRatio[0];
 		Result[1] = AspectRatio[1];
-		return Result;
+		return Result;*/
+		return new Aspects(this.AspectRatio[0], this.AspectRatio[1]);
 	}
 	
 	public void OutputAllInfo()
